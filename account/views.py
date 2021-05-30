@@ -5,6 +5,7 @@ from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditFor
                    
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from django.contrib import messages
 
 def register(request):
     if request.method == 'POST':
@@ -65,6 +66,9 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Profile Updated successfully')
+        else:
+            messages.error(request, 'Error upating your profile')
 
     else:
         user_form = UserEditForm(instance=request.user)
