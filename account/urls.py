@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+#SOCIAL_AUTH_URL_NAMESPACE = 'account:social'
 urlpatterns = [
     #post views
     #path('login/', views.user_login, name='login'),
