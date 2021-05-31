@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-18z(l89==-ju^v_j@(unf^mlwceu_$(n4i9fqbujw-wk9fo1y)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #third party apps
+    
+    'django_extensions',
+    'social_django',
 
     
 ]
@@ -119,6 +123,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
@@ -132,6 +137,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_FACEBOOK_KEY = '217241956877513' # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '17eff3b949b22d5508b3aa63a8c868ab' # Facebook App Secret
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
 
 # Default primary key field type
