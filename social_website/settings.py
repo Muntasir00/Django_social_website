@@ -124,9 +124,10 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGIN_REDIRECT_URL = 'dashboard'
+
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -142,6 +143,7 @@ STATICFILES_FINDERS = [
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_FACEBOOK_KEY = '217241956877513' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '17eff3b949b22d5508b3aa63a8c868ab' # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
